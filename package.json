@@ -1,10 +1,12 @@
 {
   "name": "elec-vue",
   "version": "0.1.0",
+  "main": "src/electron-main.js",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "start": "nodemon --exec electron ."
   },
   "dependencies": {
     "core-js": "^3.8.3",
