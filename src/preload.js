@@ -13,8 +13,14 @@ const handleOpenDirs = async (callback) => {
   callback(fallback)
 }
 
+const handleExport = async (val) => {
+  ipcRenderer.invoke('export-excel', val)
+}
+
+
 // 暴露方法给渲染进程
 contextBridge.exposeInMainWorld('myApi', {
   handleSend,
-  handleOpenDirs
+  handleOpenDirs,
+  handleExport
 });

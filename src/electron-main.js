@@ -1,6 +1,7 @@
 const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('path')
-const { getFileList } = require('./reader.js');
+const { getFileList } = require('./uitls/reader.js');
+const { exportExcel } = require('./uitls/export.js');
 
 
 let mainWindow;  // 用来保存主窗口对象的引用
@@ -47,3 +48,6 @@ ipcMain.handle('send-event', (event, msg) => {
   return getList
 })
 
+ipcMain.handle('export-excel', (event, val) => {
+  exportExcel(val)
+})
