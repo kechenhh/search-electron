@@ -30,13 +30,7 @@ app.on('ready', () => {
   });
 });
 
-// 监听显示对话框请求
-ipcMain.on('show-dialog', () => {
-  // 显示对话框
-  dialog.showMessageBox({
-    type: 'info',
-    title: '我是kechenhh',
-    message: '我的 Github 是 https://github.com/kechenhh',
-    buttons: ['确定', '取消']
-  });
-});
+
+ipcMain.handle('send-event', (event, msg) => {
+  return msg + ' form main'
+})
